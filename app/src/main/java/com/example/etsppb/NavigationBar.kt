@@ -9,13 +9,21 @@ import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableIntStateOf
 import androidx.compose.runtime.remember
 import androidx.compose.runtime.setValue
+import androidx.compose.ui.tooling.preview.Preview
 import androidx.navigation.NavHostController
+import androidx.navigation.compose.rememberNavController
 import com.example.etsppb.data.navBarItems
 
 @Composable
-fun NavBar(navController: NavHostController, currentIndex: Int) {
+fun NavBar(navController: NavHostController, currentIndex: Int?) {
+    var currIndexSafe: Int
+    if(currentIndex == null) {
+        currIndexSafe = -1
+    } else {
+        currIndexSafe = currentIndex
+    }
     var selectedItemIndex by remember {
-        mutableIntStateOf(currentIndex)
+        mutableIntStateOf(currIndexSafe)
     }
     NavigationBar {
         navBarItems.forEachIndexed{ index, item ->
@@ -46,3 +54,9 @@ fun NavBar(navController: NavHostController, currentIndex: Int) {
             }
         }
     }
+
+@Composable
+@Preview
+fun NavBarPreview() {
+    NavBar(navController = rememberNavController(), currentIndex = 0)
+}

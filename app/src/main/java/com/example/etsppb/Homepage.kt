@@ -9,6 +9,7 @@ import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.layout.width
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.DateRange
@@ -23,13 +24,16 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.res.painterResource
+import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.navigation.NavHostController
+import androidx.navigation.compose.rememberNavController
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
 fun HomePage(navController: NavHostController){
-    Scaffold(bottomBar = { NavBar(navController, 0) })
+    Scaffold(bottomBar = { NavBar(navController, 0) }, topBar = { TopBar(title = "Home")})
     {
             innerPadding-> Column(modifier= Modifier.padding(innerPadding), verticalArrangement = Arrangement.spacedBy(16.dp)) {
         SearchBar(
@@ -46,7 +50,8 @@ fun HomePage(navController: NavHostController){
             .width(360.dp)
             .height(140.dp)
             .align(Alignment.CenterHorizontally)
-            .background(Color.LightGray)) {
+            .background(Color.LightGray)
+            .padding(10.dp, 10.dp)) {
             Box(){
                 Text(text = "Hello, Haidar Fico")
             }
@@ -58,7 +63,7 @@ fun HomePage(navController: NavHostController){
                         Text(text = "My Balance")
                     }
                     Row(modifier = Modifier.fillMaxWidth(), horizontalArrangement = Arrangement.SpaceBetween, verticalAlignment = Alignment.Bottom) {
-                        Text(text= "\$XXX")
+                        Text(text= "\$5")
                         Text(text = "Connect Now!")
                     }
                 }
@@ -72,20 +77,26 @@ fun HomePage(navController: NavHostController){
             Row (modifier = Modifier
                 .width(280.dp)
                 .align(Alignment.TopCenter), horizontalArrangement = Arrangement.SpaceBetween){
-                Button(onClick = {  }) {
-                    Icon(imageVector = Icons.Filled.DateRange, contentDescription = "Travel")
+                Button(onClick = { navController.navigate(route = Screen.FlightTicketResults.route) }) {
+                    Icon(painter = painterResource(id = R.drawable.plane_icon), contentDescription = "Travel", modifier = Modifier.size(20.dp, 20.dp))
                 }
                 Button(onClick = { /*TODO*/ }) {
-                    Icon(imageVector = Icons.Filled.DateRange, contentDescription = "Plane")
+                    Icon(painter = painterResource(id = R.drawable.train), contentDescription = "Train", modifier = Modifier.size(20.dp, 20.dp))
                 }
                 Button(onClick = { /*TODO*/ }) {
-                    Icon(imageVector = Icons.Filled.DateRange, contentDescription = "Plane")
+                    Icon(painter = painterResource(id = R.drawable.bus), contentDescription = "Bus", modifier = Modifier.size(20.dp, 20.dp))
                 }
                 Button(onClick = { /*TODO*/ }) {
-                    Icon(imageVector = Icons.Filled.DateRange, contentDescription = "Plane")
+                    Icon(painter = painterResource(id = R.drawable.hotel), contentDescription = "Hotel", modifier = Modifier.size(20.dp, 20.dp))
                 }
             }
         }
     }
     }
+}
+
+@Composable
+@Preview
+fun HomePagePreview(){
+    HomePage(navController = rememberNavController())
 }
