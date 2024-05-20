@@ -1,19 +1,21 @@
 package com.example.etsppb
 
-import android.app.Activity
-import android.os.Bundle
-import androidx.activity.ComponentActivity
-import androidx.activity.compose.setContent
+import androidx.compose.foundation.layout.Box
+import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.padding
+import androidx.compose.material3.Scaffold
 import androidx.compose.material3.Text
-import com.example.etsppb.ui.theme.ETSPPBTheme
+import androidx.compose.runtime.Composable
+import androidx.compose.ui.Modifier
+import androidx.navigation.NavHostController
 
-class PreviousOrders : ComponentActivity {
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-        setContent(){
-            ETSPPBTheme {
-                Text(text = "TEMP")
-            }
+@Composable
+fun PreviousOrders(navController: NavHostController){
+    Scaffold (bottomBar = { NavBar(navController = navController, currentIndex = 2)}) {
+        internalPadding -> Column (modifier = Modifier.padding(internalPadding)){
+           Box() {
+               Text(text = "Temp")
+           }
         }
     }
 }
