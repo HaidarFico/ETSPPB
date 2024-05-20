@@ -75,7 +75,7 @@ fun FlightTicketResults(navController: NavHostController) {
             .background(Color.LightGray)
             .padding(10.dp, 10.dp)) {
             Row(horizontalArrangement = Arrangement.SpaceBetween, modifier = Modifier.fillMaxWidth()) {
-                Image(painter = painterResource(id = R.drawable.air_asia), contentDescription = "Airline Icon", modifier = Modifier.size(50.dp))
+                Image(painter = painterResource(id = R.drawable.air_asia), contentDescription = "Airline Icon", modifier = Modifier.size(40.dp))
                 Column(horizontalAlignment = Alignment.End) {
                     Text(text = "\$100")
                     Text(text = "5 Left")
@@ -109,7 +109,7 @@ fun FlightTicketResults(navController: NavHostController) {
             .background(Color.LightGray)
             .padding(10.dp, 10.dp)) {
             Row(horizontalArrangement = Arrangement.SpaceBetween, modifier = Modifier.fillMaxWidth()) {
-                Image(painter = painterResource(id = R.drawable.lion_air), contentDescription = "Airline Icon", modifier = Modifier.size(50.dp))
+                Image(painter = painterResource(id = R.drawable.lion_air), contentDescription = "Airline Icon", modifier = Modifier.size(40.dp))
                 Column(horizontalAlignment = Alignment.End) {
                     Text(text = "\$100")
                     Text(text = "5 Left")
