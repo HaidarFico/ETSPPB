@@ -5,4 +5,5 @@ sealed class Screen(val route: String) {
     object UserSettings: Screen(route = "user_settings_screen")
     object Coupon: Screen(route = "coupon_screen")
     object PreviousOrders: Screen(route = "previous_orders_screen")
+    object FlightTicketResults: Screen(route = "flight_ticket_results_screen")
 }

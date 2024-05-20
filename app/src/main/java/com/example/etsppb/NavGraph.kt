@@ -30,5 +30,10 @@ fun SetupNavGraph(
          ) {
              PreviousOrders(navController = navController)
          }
+         composable(
+             route = Screen.FlightTicketResults.route
+         ){
+             FlightTicketResults(navController = navController)
+         }
      }
 }
